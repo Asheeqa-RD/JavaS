@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div align="center">
+      <script>
+        let sideA = parseFloat(prompt("Enter the length of side A:"));
+        let sideB = parseFloat(prompt("Enter the length of side B:"));
+        let sideC = parseFloat(prompt("Enter the length of side C:"));
+
+        if (a + b > c && a + c > b && b + c > a) {
+          if (a === b && b === c) {
+            document.write("Equilateral");
+          } else if (a === b || b === c || a === c) {
+            document.write("Iscoceles");
+          } else {
+            document.write("Scalene");
+          }
+          
+        }
+      </script>
+    </div>
+  </body>
+</html>
