@@ -8,20 +8,26 @@
   <body>
     <div align="center">
       <script>
-        let sideA = parseFloat(prompt("Enter the length of side A:"));
-        let sideB = parseFloat(prompt("Enter the length of side B:"));
-        let sideC = parseFloat(prompt("Enter the length of side C:"));
+        let a = parseFloat(prompt("Enter the length of side A:"));
+        let b = parseFloat(prompt("Enter the length of side B:"));
+        let c = parseFloat(prompt("Enter the length of side C:"));
 
         if (a + b > c && a + c > b && b + c > a) {
           if (a === b && b === c) {
-            document.write("Equilateral");
+            alert("Equilateral");
           } else if (a === b || b === c || a === c) {
-            document.write("Iscoceles");
+            alert("Iscoceles");
           } else {
-            document.write("Scalene");
+            alert("Scalene");
           }
-          
-        }
+
+          var s=(a+b+c)/2;
+          var area=Math.sqrt(s*(s-a)*(s-b)*(s-c));
+          alert("Area of the traingle is "+area.toFixed(2)+"square meters");
+          }
+          else{
+            alert("Cannot form a triangle");
+          }                                                                                      
       </script>
     </div>
   </body>
