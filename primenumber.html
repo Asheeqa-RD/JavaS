@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find nth Prime Number</title>
+</head>
+<body>
+    <center>
+        <h1>nth Prime Number</h1>
+    <label for="n">Enter a positive number:</label>
+    <input type="number" id="n" min="1">
+    <button onclick="Display()">Find </button>
+    <p  id="result" style="color: blue;"></p>
+
+    </center>
+    
+
+    <script>
+        // Function to check if a number is prime
+        function isPrime(num) {
+            if (num < 2) return false;
+            for (let i = 2; i * i <= num; i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
+
+        // Function to find the nth prime number
+        function findNthPrime(n) {
+            let count = 0;
+            let num = 2;
+            while (count < n) {
+                if (isPrime(num)) count++;
+                num++;
+            }
+            return num - 1;
+        }
+
+        // Function to find and display the nth prime number
+        function Display() {
+            const n = parseInt(document.getElementById('n').value, 10);
+            const resultElement = document.getElementById('result');
+
+            if (isNaN(n) || n < 1) {
+                resultElement.textContent = "Please enter a positive integer greater than 0.";
+                return;
+            }
+
+            const nthPrime = findNthPrime(n);
+            resultElement.textContent = `The ${n}th prime number is ${nthPrime}.`;
+        }
+    </script>
+</body>
+</html>
