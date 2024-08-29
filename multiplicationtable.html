@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <h1>Multiplication Table</h1>
+    <label for="number">Enter the number:</label>
+    <input type="number" id="number" min="1">
+    <br><br>
+    <label for="limit">Enter the limit:</label>
+    <input type="number" id="limit" min="1">
+    <br><br>
+    <button onclick="generateTable()">Generate Table</button>
+    <div id="table-container"></div>
+    </center>
+
+    <script>
+        function generateTable() {
+            // Get the values from the input fields
+            const number = parseInt(document.getElementById('number').value, 10);
+            const limit = parseInt(document.getElementById('limit').value, 10);
+            const tableContainer = document.getElementById('table-container');
+            
+            // Validate the inputs
+            if (isNaN(number) || number < 1 || isNaN(limit) || limit < 1) {
+                tableContainer.innerHTML = "Please enter positive integers for both number and limit.";
+                return;
+            }
+
+            // Generate the multiplication table
+            let tableHTML = '<table><thead><tr><th>Multiplier</th></tr></thead><tbody>';
+            for (let i = 1; i <= limit; i++) {
+                tableHTML += `<tr><td>${number} x ${i} = ${number * i}</td></tr>`;
+            }
+            tableHTML += '</tbody></table>';
+
+            // Display the table
+            tableContainer.innerHTML = tableHTML;
+        }
+    </script>
+</body>
+</html>
