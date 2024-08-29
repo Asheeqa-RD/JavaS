@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input, button {
+            margin: 5px;
+            padding: 10px;
+        }
+        button {
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <h1>Simple Calculator</h1>
+    <form id="calculator-form">
+        <label for="num1">Number 1:</label>
+        <input type="number" id="num1" required>
+        <br>
+        <label for="num2">Number 2:</label>
+        <input type="number" id="num2" required>
+        <br>
+        <button type="button" onclick="performOperation('add')">Add</button>
+        <button type="button" onclick="performOperation('subtract')">Subtract</button>
+        <button type="button" onclick="performOperation('multiply')">Multiply</button>
+        <button type="button" onclick="performOperation('divide')">Divide</button>
+    </form>
+    <div class="result" id="result"></div>
+    </center>
+
+    <script>
+        function performOperation(operation) {
+            // Get values from input fields
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const resultElement = document.getElementById('result');
+
+            // Validate input
+            if (isNaN(num1) || isNaN(num2)) {
+                resultElement.textContent = "Please enter valid numbers.";
+                return;
+            }
+
+            let result;
+            switch (operation) {
+                case 'add':
+                    result = num1 + num2;
+                    break;
+                case 'subtract':
+                    result = num1 - num2;
+                    break;
+                case 'multiply':
+                    result = num1 * num2;
+                    break;
+                case 'divide':
+                    if (num2 === 0) {
+                        resultElement.textContent = "Cannot divide by zero.";
+                        return;
+                    }
+                    result = num1 / num2;
+                    break;
+                default:
+                    resultElement.textContent = "Invalid operation.";
+                    return;
+            }
+
+            resultElement.textContent = `Result: ${result}`;
+        }
+    </script>
+</body>
+</html>
