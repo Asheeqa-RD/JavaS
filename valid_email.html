@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input {
+            padding: 10px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Email Validation</h1>
+<p>Enter an email address to validate:</p>
+<input type="text" id="emailInput" placeholder="Enter email">
+<button onclick="validateEmailInput()">Validate</button>
+
+<div class="result" id="result"></div>
+
+<script>
+function validateEmail(email) {
+    const emailPattern = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
+    return emailPattern.test(email);
+}
+
+function validateEmailInput() {
+    const email = document.getElementById('emailInput').value;
+    const resultDiv = document.getElementById('result');
+
+    if (validateEmail(email)) {
+        resultDiv.textContent = `${email} is a valid email address.`;
+        resultDiv.style.color = 'green';
+    } else {
+        resultDiv.textContent = `${email} is not a valid email address.`;
+        resultDiv.style.color = 'red';
+    }
+}
+</script>
+
+</body>
+</html>
