@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <center>
+  <body>
+    <h3>Change Colors</h3>
+    Enter your name:
+    <input
+      type="text"
+      id="myInput"
+      onfocus="focusFunction()"
+      onblur="blurFunction()"
+    />
+
+</center>
+    <script>
+      function focusFunction() {
+        document.getElementById("myInput").style.background = "blue";
+
+        document.getElementById("myInput").style.color = "white";
+      }
+
+      function blurFunction() {
+        document.getElementById("myInput").style.background = "yellow";
+        document.getElementById("myInput").style.color = "brown"
+      }
+    </script>
+  </body>
+</html>
